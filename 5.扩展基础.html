@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .baidu {
+            width: 600px;
+            position: relative;
+        }
+        
+        .baidu img {
+            width: 600px;
+            height: 325px;
+            display: block;
+        }
+        
+        .baidu a {
+            position: absolute;
+            font-size: 100px;
+            color: #fff;
+            text-decoration: none;
+            top: 50%;
+            margin-top: -70px;
+        }
+        
+        .baidu a:hover {
+            color: red;
+        }
+        
+        #left {
+            left: 20px;
+        }
+        
+        #right {
+            right: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="baidu">
+        <img src="img/0.jpeg" alt="" id="pic">
+        <a href="javascript:;" id="left">&lt;</a>
+        <a href="javascript:;" id="right">&gt;</a>
+    </div>
+    <script>
+        //1.方法：被动的方法 - 事件
+        //function函数：所有的方法都是由函数生成的。
+        // document.onclick = function() { //鼠标单击文档执行语句块。
+        //     console.log(1);
+        //     console.log(1);
+        //     console.log(1);
+        //     console.log(1);
+        // }
+        // document.onclick(); //主动触发了。
+
+        //2.简单轮播
+        var left = document.getElementById('left'); //左箭头
+        var right = document.getElementById('right'); //右箭头
+        var pic = document.getElementById('pic'); //图片对象
+        var num = 0;
+
+        right.onclick = function() {
+            num++;
+            if (num > 4) {
+                num = 0;
+            }
+            pic.src = 'img/' + num + '.jpeg';
+        };
+
+        left.onclick = function() {
+            num--;
+            if (num < 0) {
+                num = 4;
+            }
+            pic.src = 'img/' + num + '.jpeg';
+        }
+    </script>
+</body>
+
+</html>
